@@ -1,0 +1,21 @@
+run my project after typing make:
+1. ./P0 < P0_test1
+   Error message (from the shell, not your program)
+
+2. ./P0 < P0_test1.f1
+   Three empty files out.preorder out.inorder out.postorder are created
+
+3. ./P0 P0_test2
+
+4. ./P0 P0_test3
+
+5. ./P0
+  Type on the keyboard
+  123 Enter ^D
+
+Output does not have any a specific error running these above five tests.
+
+I also check the wrong data if validating.
+  For example a number is less than 10, and data contains letters or a special character.
+
+My code works well with data over multiple lines.
