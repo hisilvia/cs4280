@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include "tree.h"
 
+//bool verbose = true;
+
 static Tree *Tree_construct(int val) {
    Tree *tn;
    int temp = val;
@@ -67,7 +69,11 @@ Tree *buildTree(Tree *tn, int val) {
               token = strtok(NULL," ");
          }
       }
-
+/* Test if the result is right
+      if (verbose) {
+          printf("tempStr = %s", tempStr);
+      }   
+*/
       if (token == NULL) {
           strcat(tempStr, " ");
           strcat(tempStr, strVal);
