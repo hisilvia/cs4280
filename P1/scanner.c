@@ -131,20 +131,19 @@ static char filter() {
    if (feof(source)){
          currentToken.type = EOF_tk;
     }
-    if (isspace(c) || c == '\n') {
-       word[wordIndex] = '\0';
 
+    if (isspace(c)) || (c == '\n') || (c == '\t') {
+        ;
     }else if (isalpha(c)){
         word[wordIndex++] = c;
-
     }else if (isdigit(c)){
         word[wordIndex++] = c;
     }else if (c == '#') {
         do {
             c = getNextChar();
         }while( c != '#');
-        word[wordIndex++] = '\0';
-        c = '\0';
+        if (c == '#')
+             ;
     }else {
         switch (c) {
              case '=':
@@ -168,11 +167,10 @@ static char filter() {
              case ';':
              case '[':
              case ']':
-
                 word[wordIndex++] = c;
                 break;
 
-             default:
+             default:   //Error
                 word[wordIndex++] = c;
                 break;
         }
@@ -208,7 +206,7 @@ static Token scanner() {
                }while (!isspace(currentChar));
           }
    }
-   else if (isspace(currentChar) || currentChar == '\n') {
+   else if (isspace(currentChar) || currentChar == '\n'  || currentChar == '\t') {
           currentChar = filter();
           if (isalpha(currentChar)){
                mode = 1;
@@ -219,7 +217,7 @@ static Token scanner() {
                       do{
                            currentChar =filter();
                       }while (!isspace(currentChar));
-          }
+               }
 
           }else if (isdigit(currentChar)) {
                mode = 2;
@@ -251,12 +249,14 @@ static Token scanner() {
                        ungetNextChar();
                        word[wordIndex] = '\0';
                 }
-        }else if (currentChar == '\0') {
+          }else if (currentChar == '#') {
                  mode = 6;
                  word[wordIndex++] = '\0';
-         }else {
+          }else if (isspace(currentChar)) {
+                 ;
+          }else {
                  checkRemain(currentChar);
-         }
+          }
    }else if (currentChar == '<') {
                  currentChar = filter();
                  if (currentChar == '=' ) {
@@ -278,9 +278,11 @@ static Token scanner() {
                     word[wordIndex] = '\0';
               }
 
-  }else if (currentChar == '\0') {
+   }else if (currentChar == '#') {
               mode =6;
               word[wordIndex++] = '\0';
+   }else if (isspace(currentChar)){
+              ;
    }else {
               checkRemain(currentChar);
    }
@@ -296,7 +298,6 @@ static Token scanner() {
 
    return currentToken;
 }
-
 //----------------------------------------------------------------------------
 void testScanner() {
    Token t;
