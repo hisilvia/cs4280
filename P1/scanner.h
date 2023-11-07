@@ -5,6 +5,12 @@
 
 extern FILE *source;
 
+typedef enum {
+    L,D,OP,DE,WS,ENDOFFILE,COMMENT,UNDERSCORE,ERRORF
+
+}numOfCol;
+
 void testScanner();
 
 #endif
+
