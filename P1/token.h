@@ -4,13 +4,15 @@
 typedef enum {
       IDENT_tk,   //Identifier
       NUM_tk,     //Number
-      KW_tk,      //Keyword
       OP_tk,      //Operator
       DE_tk,      //Delimiter
-      COMM_tk,
+      WS_tk,
       EOF_tk,
-      UNDERSCORE,
-      ERROR_tk
+      UNDERSCORE_tk,
+      ERROR_tk,
+      COMM_tk,
+      KW_tk,      //Keyword
+
 }tokenID;
 
 typedef struct token{
@@ -20,3 +22,4 @@ typedef struct token{
 }Token;
 
 #endif
+
