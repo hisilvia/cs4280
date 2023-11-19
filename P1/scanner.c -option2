@@ -76,6 +76,10 @@ static int filter() {
     }else if (c == '#') {
         do {
             c = getNextChar();
+            if (feof(source)){
+                printf("LEXICAL ERROR: Not found 2nd # for comment.\n");
+                exit (EXIT_FAILURE);
+            }
         }while( c != '#');
         if (c == '#') {
              ;
