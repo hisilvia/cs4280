@@ -1,0 +1,9 @@
+main
+  print 1 .
+  scan a ;
+  a ~ 2 + 3 .
+  start
+    aa = 2 .
+    print 1 .
+  stop
+end
