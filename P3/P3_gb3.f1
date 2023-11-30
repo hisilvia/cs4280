@@ -1,0 +1,14 @@
+let aa = 1 .
+main
+   print ad .
+   start
+      let ad = 4
+          ae = 5 .
+      print af .
+      start
+         let af = 6 .
+         af ~ ad + ag .
+         print aa .
+      stop
+   stop
+end

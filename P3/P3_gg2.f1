@@ -1,0 +1,15 @@
+let aa = 1
+    ab = 2
+    ac = 3 .
+main
+    print aa .
+    start
+       let ad = 4
+           ae = 5 .
+       print ab .
+       start
+          let af = 6 .
+           print 2 .
+        stop
+    stop
+end
