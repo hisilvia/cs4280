@@ -19,7 +19,7 @@
 
 TreeNode *root = NULL;
 FILE *source;
-//int lineno = 0;
+int lineno = 0;
 //****************************Function Prototype***********************
 static void exitError(const char *s);
 static void readFileInput(char *fn);
@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
   else
        source = stdin;
 
-  int level = 0;
+  //int level = 0;
 
   root = parser();
   
