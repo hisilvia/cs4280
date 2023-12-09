@@ -11,7 +11,9 @@
 static IdList id = (IdList) {0,NULL};
 
 //*********************************************************************************************
-void lookup(Token t) {
+char *lookup(Token t) {
+   char *result = NULL;
+   result = (char *) malloc(sizeof(t.instance));
    int i;
    IdEntry *curId = id.first;
 
@@ -22,15 +24,17 @@ void lookup(Token t) {
          }
          curId = curId->next;
    }
-
+   strcpy(result,t.instance);
    printf("No mult variables with same name\n");
+   return result;
 }
 //********************************************************************************************
 void insert(Token t) {
    IdEntry *newID = (IdEntry *) malloc (sizeof(IdEntry));
    //printf("coming inside insert()\n");
   
-   lookup(t);
+   char *newChar = lookup(t);
+   strcpy(newID->te.instance, newChar);
    newID->te = t;
    newID->next = id.first;
    id.first = newID;
