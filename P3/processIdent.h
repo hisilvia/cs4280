@@ -16,5 +16,5 @@ typedef struct idList {
 
 void insert(Token t);
 bool verify(Token t);
-void lookup(Token t);
+char *lookup(Token t);
 #endif
