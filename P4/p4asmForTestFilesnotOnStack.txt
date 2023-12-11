@@ -1,0 +1,243 @@
+//a.asm for #P4_1
+LOAD 1
+STORE T0
+WRITE T0
+STOP
+T0 0
+
+[smmrf@delmar P4]$ ./VirtMach a.asm
+Welcome to asmb interpreter by C.Z. Janikow, 1999
+
+Number is: 1
+*******************************************************************
+//a.asm for #P4_2
+LOAD 1
+STORE T0
+WRITE T0
+READ aa
+LOAD aa
+STORE T1
+WRITE T1
+STOP
+T0 0
+T1 0
+aa 2
+
+[smmrf@delmar P4]$ ./VirtMach a.asm
+Welcome to asmb interpreter by C.Z. Janikow, 1999
+
+Number is: 1
+Give number: 5
+Number is: 5
+---------------------------------------------------------
+[smmrf@delmar P4]$ ./VirtMach a.asm
+Welcome to asmb interpreter by C.Z. Janikow, 1999
+
+Number is: 1
+Give number: -9
+Number is: -9
+****************************************************************
+//a.asm for #P4_3
+LOAD 4
+STORE T0
+MULT -1
+STORE T1
+MULT -1
+STORE T2
+LOAD 5
+SUB T2
+STORE T3
+LOAD 8
+STORE T4
+LOAD 7
+DIV T4
+STORE T5
+LOAD 3
+MULT T5
+ADD T3
+STORE T6
+WRITE T6
+STOP
+T0 0
+T1 0
+T2 0
+T3 0
+T4 0
+T5 0
+T6 0
+
+[smmrf@delmar P4]$ ./VirtMach a.asm
+Welcome to asmb interpreter by C.Z. Janikow, 1999
+
+Number is: 1
+****************************************************************
+//a.asm for #P4_4
+READ aa
+LOAD 0
+STORE T0
+LOAD aa
+SUB T0
+BRZNEG L0
+LOAD 1
+STORE T1
+WRITE T1
+L0: NOOP
+STOP
+T0 0
+T1 0
+aa 1
+
+[smmrf@delmar P4]$ ./VirtMach a.asm
+Welcome to asmb interpreter by C.Z. Janikow, 1999
+
+Give number: 0
+--------------------------------------------------------------
+[smmrf@delmar P4]$ ./VirtMach a.asm
+Welcome to asmb interpreter by C.Z. Janikow, 1999
+
+Give number: 1
+Number is: 1
+*****************************************************************
+//a.asm for #P4_5
+[smmrf@delmar P4]$ cat a.asm
+READ aa
+LOAD 13
+STORE T0
+LOAD aa
+SUB T0
+BRNEG L0
+LOAD 19
+STORE T1
+LOAD aa
+SUB T1
+BRPOS L1
+LOAD 1
+STORE T2
+WRITE T2
+L1: NOOP
+L0: NOOP
+STOP
+T0 0
+T1 0
+T2 0
+aa 1
+
+[smmrf@delmar P4]$ ./VirtMach a.asm
+Welcome to asmb interpreter by C.Z. Janikow, 1999
+
+Give number: 12
+[smmrf@delmar P4]$ ./VirtMach a.asm
+Welcome to asmb interpreter by C.Z. Janikow, 1999
+
+Give number: 19
+Number is: 1
+[smmrf@delmar P4]$ ./VirtMach a.asm
+Welcome to asmb interpreter by C.Z. Janikow, 1999
+
+Give number: 14
+Number is: 1
+[smmrf@delmar P4]$ ./VirtMach a.asm
+Welcome to asmb interpreter by C.Z. Janikow, 1999
+
+Give number: 20
+********************************************************************
+//a.asm for #P4_6
+[smmrf@delmar P4]$ cat a.asm
+READ aa
+InL0: LOAD 0
+STORE T0
+LOAD aa
+SUB T0
+BRZNEG L1
+LOAD aa
+STORE T1
+WRITE T1
+LOAD 1
+STORE T2
+LOAD aa
+SUB T2
+STORE aa
+BR InL0
+L1: NOOP
+STOP
+T0 0
+T1 0
+T2 0
+aa 1
+
+------------------------------------------
+[smmrf@delmar P4]$ ./VirtMach a.asm
+Welcome to asmb interpreter by C.Z. Janikow, 1999
+
+Give number: 3
+Number is: 3
+Number is: 2
+Number is: 1
+[smmrf@delmar P4]$ ./VirtMach a.asm
+Welcome to asmb interpreter by C.Z. Janikow, 1999
+
+Give number: 9
+Number is: 9
+Number is: 8
+Number is: 7
+Number is: 6
+Number is: 5
+Number is: 4
+Number is: 3
+Number is: 2
+Number is: 1
+***************************************************************
+//a.asm for #P4_7
+READ aa
+InL0: LOAD 0
+STORE T0
+LOAD aa
+SUB T0
+BRZNEG L1
+LOAD aa
+STORE ab
+InL2: LOAD 0
+STORE T1
+LOAD ab
+SUB T1
+BRZNEG L3
+LOAD ab
+STORE T2
+WRITE T2
+LOAD 1
+STORE T3
+LOAD ab
+SUB T3
+STORE ab
+BR InL2
+L3: NOOP
+LOAD 2
+STORE T4
+LOAD aa
+SUB T4
+STORE aa
+BR InL0
+L1: NOOP
+STOP
+T0 0
+T1 0
+T2 0
+T3 0
+T4 0
+aa 1
+ab 2
+------------------------------
+[smmrf@delmar P4]$ ./VirtMach a.asm
+Welcome to asmb interpreter by C.Z. Janikow, 1999
+
+Give number: 5
+Number is: 5
+Number is: 4
+Number is: 3
+Number is: 2
+Number is: 1
+Number is: 3
+Number is: 2
+Number is: 1
+Number is: 1
+*********************************************************
